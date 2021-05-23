@@ -24,14 +24,14 @@ class Main_model extends CI_Model{
 
     }
 
-    public function delete_record($table, $where)
+    public function delete_record($table, $field_name, $id)
     {
-        $this->db->delete($table,$where);
-        if ($this->db->affected_rows() > 0){
-            return TRUE;
-        }else{
-            return FALSE;
-        }
+        $query = $this->db->where($field_name, $id);
+        $this->db->delete($table);
+        if ($query != NULL)
+            return $query;
+        else
+            return false;
     }
 
     public function single_record($table, $where = ''){
@@ -44,13 +44,12 @@ class Main_model extends CI_Model{
     }
 
     public function update_record($table, $data, $where){
-        $this->db->update($where);
-        $this->db->update($table, $data);
-        if($this->db->affected_rows()> 0){
-            return TRUE;
-        }else{
-            return FALSE;
-        }
+        $this->db->where($where);
+        $query = $this->db->update($table, $data);
+        if ($this->db->affected_rows() > 0)
+            return true;
+        else
+            return false;
     }
 
     // fetching records by single column

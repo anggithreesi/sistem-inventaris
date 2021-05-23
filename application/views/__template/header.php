@@ -40,7 +40,7 @@
     <link rel="stylesheet"
           href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 </head>
-<body class="hold-transition skin-purple">
+<body class="hold-transition skin-black">
 <div class="wrapper">
 
     <header class="main-header">
@@ -198,15 +198,12 @@
             <ol class="breadcrumb">
 
                 <?php
-
-
                 $url = str_replace("/", "", "http://" . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']);
 
                 $url_1 = str_replace("/", "", base_url() . "dashboard/");
                 $url_2 = str_replace("/", "", base_url() . "index.php/dashboard/");
                 $url_3 = str_replace("/", "", base_url());
                 $url_4 = str_replace("/", "", base_url() . "index.php");
-
 
                 if ($url == $url_1 || $url == $url_2 || $url == $url_3 || $url == $url_4) { ?>
                     <li>
@@ -222,7 +219,6 @@
                     </li>
 
                     <?php if ($this->session->userdata('child_name')) { ?>
-
                         <li>
                             <?php echo $this->session->userdata('parent_name'); ?>
                             <i class="fa fa-angle-right"></i>
@@ -240,7 +236,6 @@
                         <?php }
                     }
                 } ?>
-
 
             </ol>
 

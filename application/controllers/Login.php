@@ -25,7 +25,6 @@ class Login extends CI_controller{
         $full_name = $this->input->post ('full_name');
         $username = $this->input->post ('user_name');
         $password = $this->input->post ('password');
-                        // echo "<pre>";print_r($_POST);exit;
         $email = $this->input->post('email');
         
         $data = array('EMP_NAME'=>$full_name,'EMP_EMAIL'=>$email);
