@@ -22,7 +22,7 @@
     <div class="col-lg-12">
         <section class="panel">
             <header class="panel-heading">
-                pegawai FORM
+                Form Pegawai
             </header>
             <?php
             if ($this->session->flashdata('msg')) ;
@@ -49,21 +49,25 @@
                                                                                value="<?= $edit_pegawai->EMP_ADDRESS; ?>"
                                                                                name="address" type="text">
                     </div>
-                    <div class="col-sm-6"><label>GENDER</label>
-                        <select name="emp_gender" class='form-control' id='emp_gender'>
-                            <option value="0">Select Gender</option>
-                            <?php if($edit_pegawai->EMP_GENDER == 'Laki-laki'){?>
-                            <option value="Laki-laki">Laku-laki</option>
-                            <option value="Perempuan">Perempuan</option>
-                            <?PHP }else{?>
-                            <option value="Perempuan">MALE</option>
-                            <option value="Perempuan" selected>Perempuan</option>
-                        <?php } ?>
-                        </select>
-                    </div>
+
+                    <div class="col-sm-6"><label>Gender</label>
+                            <div class ="row">
+                                <div class="custom-control custom-radio">
+                                    <div class="col-sm-3"><input class="custom-control-input" type="radio" name="emp_gender" <?php if($edit_pegawai->EMP_GENDER=='L') echo "checked"?>  id="laki-laki" value="L">
+                                    <label class="custom-control-label" for="laki-laki">Laki-laki</label>
+                                    </div> 
+                                </div>
+                                <div class="custom-control custom-radio">
+                                    <div class="col-sm-3"><input class="custom-control-input" type="radio" name="emp_gender"<?php if($edit_pegawai->EMP_GENDER=='P') echo "checked"?> id="perempuan" value="P">
+                                    <label class="custom-control-label" for="perempuan">Perempuan</label>
+                                    </div>
+                                </div>
+                            </div>
+                        <?= form_error('emp_gender', '<small class="text-danger">', '</small>'); ?>
+                        </div>
                 </div>
                 <div class="form-group">
-                    <div class="col-sm-6"><label>CONTACT NO</label><input class="form-control" name="emp_cell"
+                    <div class="col-sm-6"><label>No Handphone</label><input class="form-control" name="emp_cell"
                                                                           type="text"
                                                                           value="<?= $edit_pegawai->EMP_CELL; ?>"></div>
                     

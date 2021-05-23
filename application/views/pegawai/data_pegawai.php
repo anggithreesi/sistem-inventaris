@@ -18,12 +18,13 @@
                     <table class="display table table-bordered table-striped dataTable" id="example1">
                         <thead>
                         <tr>
-                            <th>S.NO</th>
-                            <th>EMP NAME</th>
-                            <th>EMAIL</th>
+                            <th>No</th>
+                            <th>Nama</th>
+                            <th>email</th>
                             <th>No. Handphone</th>
-                            <th>ALAMAT</th>
-                            <th>AKSI</th>
+                            <th>Alamat</th>
+                            <th>Jenis Kelamin</th>
+                            <th>Aksi</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -35,6 +36,12 @@
                             <td><?=$pgw->EMP_EMAIL;?></td>
                             <td><?=$pgw->EMP_CELL;?></td>
                             <td><?=$pgw->EMP_ADDRESS;?></td>
+                            
+                            <?php if($pgw->EMP_GENDER=="P") :?>
+                            <td><?php echo "Perempuan"; ?></td>
+                            <?php else :?>
+                            <td><?php echo "Laki-laki"; ?></td>
+                            <?php endif;?>
                             <td><a href="<?=base_url()?>Pegawai/edit_pegawai/<?=$pgw->EMP_ID;?>" class="btn btn-warning"><i class="fa fa-edit"></i> Edit</a>
                             <a data-toggle="modal" href="#deletePegawai<?=$pgw->EMP_ID;?>" data-url="" class="btn btn-danger confirm_delete"  title="Hapus" class="btn btn-danger"  data-toggle="tooltip" data-placement="left" title="Hapus Pegawai"><i class="fa fa-trash"></i> Hapus</a> 
 

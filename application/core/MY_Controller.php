@@ -5,13 +5,8 @@ class MY_Controller extends CI_Controller{
     public function __construct()
     {
         parent::__construct();
-        $this->load->model('Menus'); 
-        if($this->session->userdata('user_id')){
-
-        } else {
-            redirect(base_url());
-        }
-        $this->load->model('Main_model'); 
+        $this->load->model('Menus');
+        $this->load->model('Main_model');  
         if($this->session->userdata('user_id')){
 
         } else {

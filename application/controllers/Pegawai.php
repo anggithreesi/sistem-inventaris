@@ -54,17 +54,23 @@ class Pegawai extends MY_Controller{
         // 'CREATED_USERID'=>$this->session->user_data('user_id'),
     );
 
-    // $this->form_validation->set_rules('emp_name','emp_name','trim|required');
-    // $this->form_validation->set_rules('emp_email','emp_email','trim|required');
-    // $this->form_validation->set_rules('address','address','trim|required');
-    // $this->form_validation->set_rules('gender','gender','trim|required');
-    // $this->form_validation->set_rules('emp_cell','emp_cell','trim|required');
-
+    $this->form_validation->set_rules('emp_name','Nama Pegawai','trim|required');
+    $this->form_validation->set_rules('emp_email','Email','valid_email|required');
+    $this->form_validation->set_rules('address','Alamat','trim|required');
+    $this->form_validation->set_rules('emp_gender','Gender','trim|required');
+    $this->form_validation->set_rules('emp_cell','No Handphone','numeric|required');
+    
+    if($this->form_validation->run() == FALSE) {
+        $this->header('Tambah Pegawai');
+        $this->load->view('pegawai/tambah_pegawai');
+        $this->footer();
+    } else {
         $response = $this->Main_model->save_record('pegawai',$data);
         if ($response == TRUE) {
         $this->session->set_flashdata('success','Data pegawai Berhasil Ditambahkan');
         redirect(base_url().'Pegawai/data_pegawai');
-
+        }
+    
     }
 }
 
