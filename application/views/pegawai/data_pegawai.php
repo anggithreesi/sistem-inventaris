@@ -43,6 +43,7 @@
                             <td><?php echo "Laki-laki"; ?></td>
                             <?php endif;?>
                             <td><a href="<?=base_url()?>Pegawai/edit_pegawai/<?=$pgw->EMP_ID;?>" class="btn btn-warning"><i class="fa fa-edit"></i> Edit</a>
+                            <a href="<?=base_url()?>Pegawai/detail_pegawai/<?=$pgw->EMP_ID;?>" class="btn btn-primary"><i class=" fa fa-eye"></i> </a>
                             <a data-toggle="modal" href="#deletePegawai<?=$pgw->EMP_ID;?>" data-url="" class="btn btn-danger confirm_delete"  title="Hapus" class="btn btn-danger"  data-toggle="tooltip" data-placement="left" title="Hapus Pegawai"><i class="fa fa-trash"></i> Hapus</a> 
 
                             <!-- Modal Hapus-->
