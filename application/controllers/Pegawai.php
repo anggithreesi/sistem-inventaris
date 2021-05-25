@@ -120,12 +120,13 @@ class Pegawai extends MY_Controller
         $status = 0;
         $this->Main_model->ubahaktifPegawai($id, $status);
         redirect(base_url() . 'Pegawai');
-=======
-    public function detail_pegawai($id){
-        $data['empDetail']= $this->Main_model->single_record('pegawai', array('EMP_ID'=> $id));
+    }
+
+    public function detail_pegawai($id)
+    {
+        $data['empDetail'] = $this->Main_model->single_record('pegawai', array('EMP_ID' => $id));
         $this->header('Employee Details');
         $this->load->view('pegawai/detail_pegawai', $data);
         $this->footer();
-
     }
 }
